@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <!-- css code here -->
+
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .frist {
+            display: grid;
+            margin: auto;
+            width: 300px;
+            height: 400px;
+            grid-template-columns: repeat(4, 4fr);
+            text-align: center;
+            color: rgb(0, 0, 0);
+            gap: 10px;
+            padding: 50px 20px 40px 20px;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+            border-radius: 4px;
+            background-color: rgb(221, 235, 235);
+
+        }
+
+        h1 {
+            text-align: center;
+           padding-top: 20px;
+            color: rgb(0, 0, 0);
+        }
+
+        .frist>div {
+            height: 40px;
+            width: 50px;
+            border-radius: 10px;
+            padding-top: 10px;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+
+        }
+
+        .frist :nth-child(1) {
+            grid-column-start: 1;
+            grid-column-end: 5;
+            width: 98%;
+
+
+
+        }
+
+        #black {
+            background-color: black;
+            color: white;
+
+        }
+
+        #black:hover {
+            background-color: rgb(55, 53, 53);
+
+        }
+
+        .frist>div:hover {
+            background-color: rgb(127, 127, 127);
+            color: white;
+            cursor: pointer;
+        }
+
+        #red {
+            background-color: rgb(141, 25, 40);
+        }
+
+        #back{
+            background-color: rgb(138, 149, 211);
+            height:  620px;
+            width: auto;
+        }
+    </style>
+
+</head>
+
+
+<!-- HTML code here -->
+
+<body>
+    <div id="back"> 
+    <h1>! C A L C U L A T O R !</h1>
+    <div class="frist">
+        <div id="display"></div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div id="black">+</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div id="black">-</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div id="black">*</div>
+        <div id="red">C</div>
+        <div>0</div>
+        <div>.</div>
+        <div id="black">=</div>
+    </div>
+    </div>
+</body>
+
+
+<!-- js code here -->
+
+<script>
+
+    let keys = document.querySelectorAll(".frist>div")
+    //  console.log(keys)
+
+    let bag = "";
+    for (let i = 0; i < keys.length; i++) {
+        keys[i].addEventListener("click", myCal)
+    }
+    function myCal(event) {
+        let targetnum = event.target.innerText
+        if (targetnum == "C") {
+            bag = ""
+            document.querySelector("#display").innerText = bag
+        }
+        else if (targetnum == "=") {
+            let ans = eval(bag)
+            document.querySelector("#display").innerText = ans
+        }
+        else {
+            bag += targetnum;
+            document.querySelector("#display").innerText = bag
+        }
+
+    }
+</script>
+
+</html>
